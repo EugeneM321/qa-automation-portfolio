@@ -4,21 +4,21 @@ I'm a QA Engineer with 5+ years of experience in web, API, and mobile testing, i
 
 ### Start here · [E-commerce QA Portfolio](https://github.com/EugeneM321/ecommerce-qa-portfolio)
 
-My primary case study applies a sole-QA release mindset to interrupted checkout. Playwright with TypeScript, REST API checks, and read-only SQLite verification show that retrying the same checkout creates one paid order and deducts inventory once. The case study includes risk-based release gates and a controlled test failure with a documented retest.
+A shopper whose payment confirmation is interrupted needs to recover the original order without a duplicate paid order or inventory deduction. Playwright with TypeScript covers browser recovery. REST API tests synchronize two overlapping retries at the handler, and read-only SQLite checks independently verify one paid order and one deduction. Payments are synthetic.
 
-**Verified** · 14 manual passes, 4 API + SQLite checks passed, 4 Playwright tests passed. [Passing CI run](https://github.com/EugeneM321/ecommerce-qa-portfolio/actions/runs/45475043616)
+**Verified** · 14 historical manual passes, 7 API/SQLite tests and 4 Playwright tests passed on main. Includes trace-based failure investigation. [Passing CI run](https://github.com/EugeneM321/ecommerce-qa-portfolio/actions/runs/46077689281)
 
 ### [Mobile Recovery QA Portfolio](https://github.com/EugeneM321/mobile-recovery-qa-portfolio)
 
-A synthetic mobile app for testing permissions, background/resume, and offline cache and retry behavior. Controlled API failures and out-of-order responses exercise recovery. A client-state regression verifies that late data cannot overwrite newer visible or cached state, and a controlled logic failure shows how that protection breaks.
+A community feed must stay usable after interruption and keep newer content when an older response arrives late. A local HTTP harness controls response order. Node.js host tests use controlled timers and injected storage for timeout, Retry, cache restoration, invalid responses, and storage errors.
 
-**Verified** · 12 manual passes on a local Pixel 3a emulator running Android 14 / API 34, plus 4 API checks and 1 client-state regression passed in GitHub Actions. iOS and physical Android were outside this run. [Passing CI run](https://github.com/EugeneM321/mobile-recovery-qa-portfolio/actions/runs/45528417127)
+**Verified** · 4 API tests and 9 client-state tests passed on main. A separate historical manual run recorded 12 passes on a Pixel 3a Android 14 emulator. iOS and physical-device coverage remain unverified. [Passing CI run](https://github.com/EugeneM321/mobile-recovery-qa-portfolio/actions/runs/46077696582)
 
 ### [Tournament QA Portfolio](https://github.com/EugeneM321/tournament-qa-portfolio)
 
-Risk-based manual testing, Cypress with JavaScript, and Postman/Newman API validation trace invalid scores from the requirement through persisted results and CI. Includes a controlled assertion failure and retest.
+An invalid score must leave the stored match result and standings intact. Postman/Newman exercises the form and HTML HTTP contract and reads back both views after invalid input, accepted score limits, draws, and repeated writes. Cypress verifies keyboard navigation, Space activation, and error focus after HTTP 422. Roles are synthetic and state is held in memory.
 
-**Verified** · 12 manual passes, 5 Cypress tests passed, and 31 Newman requests with 87 assertions and 0 failures. [Passing CI run](https://github.com/EugeneM321/tournament-qa-portfolio/actions/runs/45415487928)
+**Verified** · 12 historical manual passes, 49 Newman requests with 181 passing assertions, and 6 Cypress specs passed on Ubuntu. The controlled failure produced JUnit, a screenshot, and a demo log. Local Windows Cypress startup remains blocked. [Passing CI run](https://github.com/EugeneM321/tournament-qa-portfolio/actions/runs/46077658866) · [Controlled failure](https://github.com/EugeneM321/tournament-qa-portfolio/actions/runs/46076125123)
 
 ### Technology
 
